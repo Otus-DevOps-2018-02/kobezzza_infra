@@ -61,5 +61,4 @@ gcloud compute firewall-rules create default-puma-server\
 #### Параметры для проверки:
 
 testapp_IP = 35.189.221.21
-
 testapp_port = 9292
