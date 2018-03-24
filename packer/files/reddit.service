@@ -1,13 +1,12 @@
 [Unit]
 Description=Reddit App
 Requires=mongod.service
-After=mongod.service
-After=network.target
+After=network.target mongod.service
 
 [Service]
-Type=simple
-ExecStart=/usr/local/bin/puma
-WorkingDirectory=/reddit
+User=appuser
+WorkingDirectory=/home/appuser/reddit
+ExecStart=/usr/local/bin/puma -b tcp://0.0.0.0:9292
 Restart=always
 
 [Install]
