@@ -2,14 +2,24 @@
   "variables": {
     "project_id": "",
     "source_image_family": "",
-    "machine_type": "f1-micro"
+    "machine_type": "f1-micro",
+    "image_description": "My awesome reddit application",
+    "disk_size": "10",
+    "disk_type": "pd-standard",
+    "network": "",
+    "tags": ""
   },
   "builders": [{
     "type": "googlecompute",
     "project_id": "{{user `project_id`}}",
     "image_name": "reddit-base-{{timestamp}}",
     "image_family": "reddit-base",
+    "image_description": "{{user `image_description`}}",
     "source_image_family": "{{user `source_image_family`}}",
+    "disk_size": "{{user `disk_size`}}",
+    "disk_type": "{{user `disk_type`}}",
+    "network": "{{user `network`}}",
+    "tags": "{{user `tags`}}",
     "zone": "europe-west1-b",
     "ssh_username": "appuser",
     "machine_type": "{{user `machine_type`}}"
