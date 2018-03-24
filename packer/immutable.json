@@ -10,7 +10,7 @@
   "builders": [{
     "type": "googlecompute",
     "project_id": "{{user `project_id`}}",
-    "image_name": "reddit-base-{{timestamp}}",
+    "image_name": "reddit-full-{{timestamp}}",
     "image_family": "reddit-full",
     "image_description": "My awesome reddit application",
     "source_image_family": "{{user `source_image_family`}}",
