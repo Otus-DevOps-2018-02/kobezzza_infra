@@ -48,7 +48,7 @@ gcloud compute instances create reddit-app\
   --metadata-from-file startup-script=./startup-script.sh
 ```
 
-#### Дополнительное задание. Правило файволла (слайд 21)
+#### Дополнительное задание. Правило брандмауэра (слайд 21)
 
 ```bash
 gcloud compute firewall-rules create default-puma-server\
