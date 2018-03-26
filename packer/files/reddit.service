@@ -1,0 +1,13 @@
+[Unit]
+Description=Reddit App
+Requires=mongod.service
+After=network.target mongod.service
+
+[Service]
+User=appuser
+WorkingDirectory=/home/appuser/reddit
+ExecStart=/usr/local/bin/puma -b tcp://0.0.0.0:9292
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
