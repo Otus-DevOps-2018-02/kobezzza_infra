@@ -57,6 +57,7 @@ resource "google_compute_url_map" "reddit_app_url_map" {
   default_service = "${google_compute_backend_service.reddit_app_backend.self_link}"
 }
 
+# Proxy для запросов
 resource "google_compute_target_http_proxy" "reddit_app_http_proxy" {
   name        = "reddit-app-http-proxy"
   url_map     = "${google_compute_url_map.reddit_app_url_map.self_link}"
