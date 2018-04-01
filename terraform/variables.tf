@@ -25,6 +25,6 @@ variable disk_image {
 }
 
 variable vm_count {
-  description = "Number of VMs" 
+  description = "Number of VMs"
   default     = "2"
 }

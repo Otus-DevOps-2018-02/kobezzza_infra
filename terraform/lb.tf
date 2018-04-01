@@ -17,7 +17,7 @@ resource "google_compute_instance_group" "reddit_app_group" {
 
 # Правило брандмауэра для трафика от балансировщика до инстансов
 resource "google_compute_firewall" "firewall_load_balancer" {
-  name = "allow-from-load-balancer"
+  name    = "allow-from-load-balancer"
   network = "default"
 
   allow {
@@ -25,7 +25,7 @@ resource "google_compute_firewall" "firewall_load_balancer" {
   }
 
   source_ranges = ["130.211.0.0/22", "35.191.0.0/16"]
-  target_tags = ["reddit-app"]
+  target_tags   = ["reddit-app"]
 }
 
 # Сервис для проверки жизни инстансов
@@ -53,14 +53,14 @@ resource "google_compute_http_health_check" "http_check" {
 }
 
 resource "google_compute_url_map" "reddit_app_url_map" {
-  name = "reddit-app-url-map"
+  name            = "reddit-app-url-map"
   default_service = "${google_compute_backend_service.reddit_app_backend.self_link}"
 }
 
 # Proxy для запросов
 resource "google_compute_target_http_proxy" "reddit_app_http_proxy" {
-  name        = "reddit-app-http-proxy"
-  url_map     = "${google_compute_url_map.reddit_app_url_map.self_link}"
+  name    = "reddit-app-http-proxy"
+  url_map = "${google_compute_url_map.reddit_app_url_map.self_link}"
 }
 
 resource "google_compute_global_forwarding_rule" "reddit_app_forwarding_rule" {
