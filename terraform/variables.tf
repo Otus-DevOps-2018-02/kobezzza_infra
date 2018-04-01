@@ -23,3 +23,8 @@ variable private_key_path {
 variable disk_image {
   description = "Disk image"
 }
+
+variable vm_count {
+  description = "Number of VMs" 
+  default     = "2"
+}
