@@ -16,7 +16,8 @@ resource "google_compute_instance" "app" {
   tags = ["reddit-app"]
 
   network_interface {
-    network       = "default"
+    network = "default"
+
     access_config = {
       nat_ip = "${google_compute_address.app_ip.address}"
     }
