@@ -22,9 +22,3 @@ module "vpc" {
   source        = "../modules/vpc"
   source_ranges = ["0.0.0.0/0"]
 }
-
-module "storage-bucket" {
-  source  = "SweetOps/storage-bucket/google"
-  version = "0.1.1"
-  name    = ["storage-kobezzza-test", "storage-kobezzza-test2"]
-}
